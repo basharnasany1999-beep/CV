@@ -78,27 +78,21 @@ window.addEventListener('scroll' , ()=>{
 
 let arrayskill = ['I have strong front-end development skills, with solid knowledge of HTML5, CSS3, and JavaScript. I enjoy building clean, responsive, and user-friendly websites while continuously improving my coding and design abilities.']
 let indexskill = 0;
-let letterskill = 0
+let letterskill = 0;
+let font = 16
 const BAshar = document.getElementById('Bashar')
 
 function skilltext(){
     BAshar.innerHTML =`<p>${arrayskill[indexskill].slice(0 , letterskill)}</p>`
     letterskill++;
+    BAshar.style.setProperty( "--w", font + "px");
     setTimeout(() => {
         skilltext()
     }, 20);
     
 
 }
-const navbar = document.querySelectorAll('.navbar li')
-navbar.forEach((nav)=>{
-    nav.addEventListener('click' , ()=>{
-        navbar.forEach((i)=>{
-            i.classList.remove('active')
-        })
-   nav.classList.add('active')
-    })
-})
+
 
 
 
@@ -111,3 +105,52 @@ btn.addEventListener("mousemove", (event) => {
   btn.style.setProperty("--xPos", x + "px");
   btn.style.setProperty("--yPos", y + "px");
 });
+
+const nav = document.querySelector('.navbar')
+const open1 = document.querySelector('.open-sidebar')
+const close = document.querySelector('.close-sidebar')
+
+function opensidebar(){
+    nav.classList.add('active')
+}
+function closesidebar(){
+    nav.classList.remove('active')
+}
+
+const imgs = document.querySelectorAll('.pictures a')
+let invalid =  null;
+ let indeximg  = 0
+document.addEventListener('DOMContentLoaded' , upadteimg)
+ function upadteimg(){
+    if(window.innerWidth < 1000  && imgs.length > 0){
+        imgs[indeximg].classList.add('displayimg')
+    }
+     invalid = setInterval(next , 5000)
+ }
+ function show(index){
+   if(index >= imgs.length){
+    indeximg = 0;
+   }
+   else if(index < 0){
+    indeximg = imgs.length -1
+   }
+
+
+    imgs.forEach(img =>{
+        img.classList.remove('displayimg')
+    })
+    imgs[indeximg].classList.add('displayimg')
+
+ }
+ function pre(){
+    clearInterval(invalid)
+    indeximg--;
+    show(indeximg)
+    
+
+ }
+ function next(){
+   
+    indeximg++;
+    show(indeximg)
+ }

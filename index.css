@@ -7,11 +7,14 @@
 }
 
 body{
+    margin: 0;
+    padding: 0;
     background-color: #ffffff;
     min-height: 100vh;
     min-height: 100dvh;
     scroll-snap-type:y mandatory;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 main{
     margin-top: 70px;
@@ -38,8 +41,12 @@ a{
     
    color:  black;
    font-family: 'poppins';
+   transition: transform 0.3s ease-in-out;
    
     
+}
+a:hover{
+    transform: scale(1.1);
 }
 li:hover{
     background-color: rgb(209, 209, 209);
@@ -74,36 +81,208 @@ li{
     font-family: "poppins", sans-serif;
     line-height: 1.8;
 }
-@media (max-width:800px ) {
+.open-sidebar{
+    
+    border: none;
+    background-color: transparent;
+    display:none;
+    margin-left: auto;
+    cursor: pointer;
+   
+    
+
+}
+.close-sidebar{
+    display: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+#skills1{
+        font-size: 3rem;
+    position: absolute;
+    top: 12%;
+    
+    left:5%;
+   font-family:"Fustat", sans-serif; 
+   color:rgb(145, 128, 32);
+   border-bottom: 1px solid;
+   width:500px;
+}
+h2{
+    letter-spacing: 2px;
+}
+@media (max-width:1000px ) {
+    .open-sidebar,.close-sidebar{
+        display: flex;
+        cursor: pointer;
+       
+    }
+    .displayimg {
+        display: block  !important;
+        animation-name: box  ;
+        animation-duration: 1s;
+       
+        
+    }
+    .next{
+        position: absolute;
+        top: 70%;
+        right: 10%;
+         font-size: 1.80rem;
+         padding: 5px 20px;
+         background-color: transparent;
+         border: none;
+         cursor: pointer;
+    }
+    .pre1{
+       position: absolute;
+        top: 70%;
+        left: 10%;
+         font-size: 1.80rem;
+         padding: 5px 20px;
+         background-color: transparent;
+         border: none;
+         cursor: pointer;
+
+    }
+    @keyframes box {
+        from{
+            opacity: .5;
+        }
+        to{
+            opacity: 1;
+        }
+        
+    }
+
+    .pictures a{
+        display: none;
+        width: 400px !important;
+        
+    }
+    #skills1{
+      position: relative;
+      top: 0;
+    }
+    .open-sidebar{
+        position: fixed;
+        right: 0;
+    }
+ 
+    main{
+        margin: 0;
+    }
     .nasany{
+        left: 0;
+        top: 0;
         font-size: 2.40rem;
-        margin: 10px;
-    }
-    img{
+        width: 85%;
         
     }
-      nav{
+    #chart-text{
+        top: 15%;
+        line-height: 2;
+    }
+    .Bashar{
+        opacity: 0.3;
+        top:  20%;
         
-        
-        
-      }
-      .box .bar-back{
-        
+    }
+     nav{
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+     position: relative;
       
 
       }
-      .box .bar-front{
+      .navbar ul{
+        margin:0 ;
+        padding: 0;
+        display: block;
+        transition:all 0.5s ease-in-out ;
+        
+        border-left: 1px solid rgb(153, 137, 49);
+        background-color: #ffffff;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        
         
       }
-      .box{
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        float: left;
+      .navbar.active ul{
+        right: 0;
+      }
+
+      .navbar a{
+          font-size: 18px;
+      }
+    .bar-back{
+      
+        position: relative;
+        max-width: 200px;
+        height: 5px !important;
+      
+
+      }
+      .bar{
+       
+        max-width: 200px;
+        height: 5px;
+        
+
+      }
+      
+       .bar-front{
+       width: 200px !important;
+       height: 5px !important;
+       
+      }
+   .box3{
+    width: 400px;
+    position: absolute;
+    top: 20%;
+    opacity: 0.5;
+    left: 10%;
+   }
+      
+     #Bashar {
+     font-size: 1rem !important; /* smaller on phones */
+     width: 90%;        /* shrink width so it fits */
+     right: auto; 
+     top: 18% !important;      /* remove fixed right alignment */
+     left: 5%;          /* add some padding */
+     position: relative; /* so it flows normally */
+      }
+      .container{
+        margin: 0 !important;
+        
+        
       }
 
 
+
+
+      .box{
+        margin: 0;
+        
+        
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        
+        
+      }
+      .container img{
+        width: 40px !important ;
+      }
+
+
+
+}
+.box3{
+    display: none;
 }
 section{
     height: 100vh;
@@ -128,15 +307,15 @@ section{
    overflow:hidden ;
 
     width: 400px;
-    
+
 }
 .bar-back{
     position: relative;
     height: 10px;
     background-color: red;
     overflow: hidden;
-     max-width: 400px;
-     width: 0%;
+    
+    
     
 }
 .bar-front{
@@ -144,7 +323,8 @@ section{
     height: 10px;
     overflow: hidden;
     background-color: aqua;
-     width: 400px;
+    width: 400px;
+     
 }
 .htmljs{
     width: 10px;
